@@ -28,14 +28,17 @@ x = slice(2, 4)
 print(a[x])
 
 # Output every element except the first one: [4, 1, 7, 9, 6]
-print()
+x = slice(1, 6)
+print(a[x])
 
 # Output every element except the last one: [2, 4, 1, 7, 9]
-print()
+x = slice(5)
+print(a[x])
 
 # For string s...
 
 s = "Hello, world!"
 
 # Output just the 8th-12th characters: "world"
-print()
+x = slice(7, 12)
+print(s[x])
