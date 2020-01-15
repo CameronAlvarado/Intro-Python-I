@@ -19,27 +19,57 @@ and does the following:
    Then exit the program.
 """
 
+# import sys
+# import calendar
+# from datetime import datetime
+
+# # Get the arguments
+# print(sys.argv)
+
+# def make_cal(arg):
+# 	x = input("Calendar? ")
+# 	if len(args) == 1:
+# 		print('ok')
+# 	else:
+# 		z = date.today().month
+# 		i = z.isoformat()
+# 		y = date.fromisoformat(i)
+# 		o = slice(0, 4)
+# 		w = slice(5, 7)
+# 		year = i[o]
+# 		month = i[w]
+# 		tc = calendar.TextCalendar(firstweekday = 0)
+# 		print(tc.formatmonth(int(year), int(month)))
+
+# make_cal(5)
+
 import sys
 import calendar
-from datetime import date
+from datetime import datetime
 
-# calendar.setfirstweekday(6)
-# print(calendar.firstweekday())
+# Get the arguments
+args = sys.argv
 
-def make_cal(arg):
-	x = input("Calendar? ")
-	if arg is int:
-		tc = calendar.TextCalendar(firstweekday = 0)
-		print(tc.formatmonth(int(s), int(arg)))
-	else:
-		z = date.today()
-		i = z.isoformat()
-		y = date.fromisoformat(i)
-		o = slice(0, 4)
-		w = slice(5, 7)
-		s = i[o]
-		q = i[w]
-		tc = calendar.TextCalendar(firstweekday = 0)
-		print(tc.formatmonth(int(s), int(q)))
+today = datetime.now()
+month = today.month
+year = today.year
 
-make_cal(int(5))
+tc = calendar.TextCalendar()
+
+# If there are no arguments,
+if len(args) == 1:
+    # print calendar for current month
+    tc.prmonth(year, month)
+# If there's 1 arg,
+elif len(args) == 2:
+    # assume it's the month and print cal for that month
+    month = int(args[1])
+    tc.prmonth(year, month)
+# If there's 2 args, assume it's the month/year
+elif len(args) == 3:
+    # print cal for that month/year
+    month = int(args[1])
+    year = int(args[2])
+    tc.prmonth(year, month)
+else:
+    print("Input should be in this format: `14_cal.py month [year]`")

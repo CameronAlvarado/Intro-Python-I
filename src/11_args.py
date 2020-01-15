@@ -56,7 +56,7 @@ print(f3(8))     # Should print 9
 # YOUR CODE HERE
 def f4(**d):
 	for x, y in d.items():
-		print("key: {}, value: {}".format(x,y)) #confusing when print() is/isn't included
+		print("key: {}, value: {}".format(x,y))
 
 
 # Should print
