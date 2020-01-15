@@ -29,7 +29,7 @@ import os
 
 # Print the current process ID
 # print(os.name)
-print(os.geteuid())
+print(os.getegid())
 
 # Print the current working directory (cwd):
 print(os.getcwd())
