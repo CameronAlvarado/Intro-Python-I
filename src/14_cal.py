@@ -21,4 +21,25 @@ and does the following:
 
 import sys
 import calendar
-from datetime import datetime
+from datetime import date
+
+# calendar.setfirstweekday(6)
+# print(calendar.firstweekday())
+
+def make_cal(arg):
+	x = input("Calendar? ")
+	if arg is int:
+		tc = calendar.TextCalendar(firstweekday = 0)
+		print(tc.formatmonth(int(s), int(arg)))
+	else:
+		z = date.today()
+		i = z.isoformat()
+		y = date.fromisoformat(i)
+		o = slice(0, 4)
+		w = slice(5, 7)
+		s = i[o]
+		q = i[w]
+		tc = calendar.TextCalendar(firstweekday = 0)
+		print(tc.formatmonth(int(s), int(q)))
+
+make_cal(int(5))
